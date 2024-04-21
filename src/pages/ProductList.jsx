@@ -33,7 +33,7 @@ const ProductList = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {products.map((product) => (
           <Link key={product.id} to={`/products/${product.id}`}>
-            <div className="bg-white rounded-lg shadow-md p-4 hover:scale-105 active:scale-95">
+            <div className="bg-white max-h-96	rounded-lg shadow-md p-4 hover:scale-105  hover:outline outline-offset-2 active:scale-95">
               <img
                 src={product.img}
                 alt={product.name}

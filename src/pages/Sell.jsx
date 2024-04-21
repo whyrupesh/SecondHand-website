@@ -23,6 +23,7 @@ const Sell = () => {
     img: "",
     name: "",
     price: "",
+    phone: "",
     description: "",
   });
 
@@ -60,6 +61,7 @@ const Sell = () => {
       img: product.img,
       name: product.name,
       price: product.price,
+      phone: product.phone,
       description: product.description,
     };
 
@@ -73,6 +75,7 @@ const Sell = () => {
           img: "",
           name: "",
           price: "",
+          phone: "",
           description: "",
         });
       })
@@ -153,6 +156,21 @@ const Sell = () => {
             onChange={handleChange}
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
             placeholder="Enter the product price"
+            required
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="phone" className="block mb-2 font-medium">
+            Whatsapp Number
+          </label>
+          <input
+            type="text"
+            id="phone"
+            name="phone"
+            value={product.phone}
+            onChange={handleChange}
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+            placeholder="Enter your 10 digit Whatsapp Number"
             required
           />
         </div>

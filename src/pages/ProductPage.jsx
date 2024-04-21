@@ -48,8 +48,8 @@ const ProductPage = () => {
             {/* chat button */}
             <div className="mt-6">
               <a
-                href={`https://wa.me/${7633856391}?text=${encodeURIComponent(
-                  "Hi, I wanted to buy your product"
+                href={`https://wa.me/${product.phone}?text=${encodeURIComponent(
+                  `Hi, I wanted to buy your product: *${product.name}* listed on SecondHand.`
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
