@@ -1,4 +1,22 @@
 import React, { useState } from "react";
+import { initializeApp } from "firebase/app";
+import { getDatabase, ref, set } from "firebase/database";
+import { v4 as uuidv4 } from "uuid";
+
+//demo app
+const firebaseConfig = {
+  apiKey: "AIzaSyBVyw5JhWSVwLAf4Y3cTZNtOv-gSwUAsTA",
+  authDomain: "fir-d793f.firebaseapp.com",
+  projectId: "fir-d793f",
+  storageBucket: "fir-d793f.appspot.com",
+  messagingSenderId: "554813484885",
+  appId: "1:554813484885:web:02d18512751f6b8fc009dc",
+  databaseURL: "https://fir-d793f-default-rtdb.firebaseio.com/",
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
 
 const Sell = () => {
   const [product, setProduct] = useState({
@@ -32,15 +50,34 @@ const Sell = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add logic to handle form submission, such as sending the product data to a server
-    console.log(product);
-    // Reset the form
-    setProduct({
-      img: "",
-      name: "",
-      price: "",
-      description: "",
-    });
+
+    // Generate a unique ID for the product
+    const productId = uuidv4();
+
+    // Create a new product object
+    const newProduct = {
+      id: productId,
+      img: product.img,
+      name: product.name,
+      price: product.price,
+      description: product.description,
+    };
+
+    // Save the new product to the database
+    set(ref(database, "products/" + productId), newProduct)
+      .then(() => {
+        console.log("Product added successfully!");
+        // Reset the form
+        setProduct({
+          img: "",
+          name: "",
+          price: "",
+          description: "",
+        });
+      })
+      .catch((error) => {
+        console.error("Error adding product:", error);
+      });
   };
 
   return (
