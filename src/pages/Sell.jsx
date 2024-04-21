@@ -67,6 +67,7 @@ const Sell = () => {
     set(ref(database, "products/" + productId), newProduct)
       .then(() => {
         console.log("Product added successfully!");
+        alert("Product added successfully!");
         // Reset the form
         setProduct({
           img: "",

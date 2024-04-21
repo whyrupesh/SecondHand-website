@@ -8,11 +8,11 @@ export default function Navbar() {
           <Link to="/" className="flex items-center space-x-3">
             {/* <img src="path/to/logo.png" class="h-8" alt="Logo" /> */}
             <span className="self-center text-2xl font-semibold whitespace-nowrap">
-              Logo
+              SecondHand
             </span>
           </Link>
 
-          <ul className="flex space-x-20">
+          <ul className="flex space-x-20 font-bold">
             <li>
               <Link to="/">Home</Link>
             </li>
