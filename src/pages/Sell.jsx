@@ -3,15 +3,15 @@ import { initializeApp } from "firebase/app";
 import { getDatabase, ref, set } from "firebase/database";
 import { v4 as uuidv4 } from "uuid";
 
-//demo app
+//secondhand-web
 const firebaseConfig = {
-  apiKey: "AIzaSyBVyw5JhWSVwLAf4Y3cTZNtOv-gSwUAsTA",
-  authDomain: "fir-d793f.firebaseapp.com",
-  projectId: "fir-d793f",
-  storageBucket: "fir-d793f.appspot.com",
-  messagingSenderId: "554813484885",
-  appId: "1:554813484885:web:02d18512751f6b8fc009dc",
-  databaseURL: "https://fir-d793f-default-rtdb.firebaseio.com/",
+  apiKey: "AIzaSyAWUBJIuFU-iRp6ELkH2-_jT2xxWHSBL8A",
+  authDomain: "secondhand-website.firebaseapp.com",
+  projectId: "secondhand-website",
+  storageBucket: "secondhand-website.appspot.com",
+  messagingSenderId: "572969560141",
+  appId: "1:572969560141:web:eb6e06432ee4606b125404",
+  databaseURL: "https://secondhand-website-default-rtdb.firebaseio.com/",
 };
 
 // Initialize Firebase
