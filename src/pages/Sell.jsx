@@ -2,21 +2,22 @@ import React, { useState } from "react";
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, set } from "firebase/database";
 import { v4 as uuidv4 } from "uuid";
+import { app, database } from "./FirebaseConfig";
 
 //secondhand-web
-const firebaseConfig = {
-  apiKey: "AIzaSyAWUBJIuFU-iRp6ELkH2-_jT2xxWHSBL8A",
-  authDomain: "secondhand-website.firebaseapp.com",
-  projectId: "secondhand-website",
-  storageBucket: "secondhand-website.appspot.com",
-  messagingSenderId: "572969560141",
-  appId: "1:572969560141:web:eb6e06432ee4606b125404",
-  databaseURL: "https://secondhand-website-default-rtdb.firebaseio.com/",
-};
+// const firebaseConfig = {
+//   apiKey: "AIzaSyAWUBJIuFU-iRp6ELkH2-_jT2xxWHSBL8A",
+//   authDomain: "secondhand-website.firebaseapp.com",
+//   projectId: "secondhand-website",
+//   storageBucket: "secondhand-website.appspot.com",
+//   messagingSenderId: "572969560141",
+//   appId: "1:572969560141:web:eb6e06432ee4606b125404",
+//   databaseURL: "https://secondhand-website-default-rtdb.firebaseio.com/",
+// };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const database = getDatabase(app);
+// const app = initializeApp(firebaseConfig);
+// const database = getDatabase(app);
 
 const Sell = () => {
   const [product, setProduct] = useState({
