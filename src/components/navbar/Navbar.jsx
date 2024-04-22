@@ -1,9 +1,10 @@
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 export default function Navbar() {
   const logout = () => {
     localStorage.clear();
-    window.location.reload();
+    {/*window.location.reload();*/}
+    navigate("/");
   };
   return (
     <>
