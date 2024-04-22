@@ -50,8 +50,12 @@ const Sell = () => {
     reader.readAsDataURL(file);
   };
 
+  const [loading, setLoading] = useState(false);
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    alert("please wait while we are adding your product.");
+    setLoading(true);
 
     // Generate a unique ID for the product
     const productId = uuidv4();
@@ -79,6 +83,7 @@ const Sell = () => {
           phone: "",
           description: "",
         });
+        setLoading(false);
       })
       .catch((error) => {
         console.error("Error adding product:", error);
@@ -196,6 +201,7 @@ const Sell = () => {
           Add Your Product
         </button>
       </form>
+      {loading && <div>Uploading, Wait....</div>}
     </div>
   );
 };
