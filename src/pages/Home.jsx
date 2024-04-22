@@ -1,14 +1,17 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
+
   const handleBuyClick = () => {
-    // Redirect to the buy page
-    window.location.href = "/buy";
+    // Navigate to the buy page
+    navigate("/Buy");
   };
 
   const handleSellClick = () => {
-    // Redirect to the sell page
-    window.location.href = "/sell";
+    // Navigate to the sell page
+    navigate("/Sell");
   };
 
   return (
