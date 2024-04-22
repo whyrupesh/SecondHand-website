@@ -5,19 +5,19 @@ import { Link, useMatch, useResolvedPath } from "react-router-dom";
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    // Simulate an asynchronous operation to fetch the products
-    setTimeout(() => {
-      // Replace this with your actual data fetching logic
-      const fetchedProducts = [
-        // Your product data
-      ];
-      setProducts(fetchedProducts);
-      setIsLoading(false);
-    }, 3000);
-  }, []);
+  // useEffect(() => {
+  //   // Simulate an asynchronous operation to fetch the products
+  //   setTimeout(() => {
+  //     // Replace this with your actual data fetching logic
+  //     const fetchedProducts = [
+  //       // Your product data
+  //     ];
+  //     setProducts(fetchedProducts);
+  //     setIsLoading(false);
+  //   }, 1000);
+  // }, []);
 
   useEffect(() => {
     const database = getDatabase();
@@ -31,6 +31,7 @@ const ProductList = () => {
           const productsData = snapshot.val();
           const productsArray = Object.values(productsData);
           setProducts(productsArray);
+          console.log("Data Fetched Successfully");
         } else {
           console.log("No data available");
         }
@@ -44,10 +45,7 @@ const ProductList = () => {
     <div>
       <h2 className="text-2xl font-bold mb-4 ">Listed Products</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {isLoading ? (
-          // Show loading animation while isLoading is true
-          <div>Wait it will take some time...</div>
-        ) : (
+        {products ? (
           // Render the product list when isLoading is false
           products.map((product) => (
             <Link key={product.id} to={`/products/${product.id}`}>
@@ -70,6 +68,9 @@ const ProductList = () => {
               </div>
             </Link>
           ))
+        ) : (
+          // Show loading animation while isLoading is true
+          <div>Wait it will take some time...</div>
         )}
       </div>
     </div>
