@@ -16,7 +16,7 @@ const ProductList = () => {
       ];
       setProducts(fetchedProducts);
       setIsLoading(false);
-    }, 1000);
+    }, 3000);
   }, []);
 
   useEffect(() => {
@@ -46,7 +46,7 @@ const ProductList = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {isLoading ? (
           // Show loading animation while isLoading is true
-          <div>Loading Products...</div>
+          <div>Wait it will take some time...</div>
         ) : (
           // Render the product list when isLoading is false
           products.map((product) => (

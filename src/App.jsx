@@ -2,7 +2,7 @@ import Home from "./pages/Home";
 import Navbar from "./components/navbar/Navbar";
 import Sell from "./pages/Sell";
 import Buy from "./pages/Buy";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import ProductPage from "./pages/ProductPage";
 
 import { auth, provider } from "../src/pages/FirebaseConfig";
@@ -22,6 +22,7 @@ export default function App() {
   useEffect(() => {
     setValue(localStorage.getItem("email"));
   });
+
   return (
     <>
       <Navbar />
@@ -45,8 +46,14 @@ export default function App() {
               )
             }
           />
-          <Route path="/Buy" element={<Buy />} />
-          <Route path="/Sell" element={<Sell />} />
+          <Route
+            path="/Buy"
+            element={value ? <Buy /> : <Navigate to="/" replace />}
+          />
+          <Route
+            path="/Sell"
+            element={value ? <Sell /> : <Navigate to="/" replace />}
+          />
           <Route path="/products/:id" element={<ProductPage />} />
         </Routes>
       </div>
